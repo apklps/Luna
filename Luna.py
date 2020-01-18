@@ -1,5 +1,5 @@
 def main():
 
-	print('Test')
+	woah_bro = 'zoom'
 
 main()
