@@ -1,5 +1,14 @@
 import os, time
 
+def print_options(options):
+
+	i = 1
+
+	for line in options:
+		print(i, line, end = '')
+		i = i + 1
+	print('\n')
+
 def main():
 
 	# Clears the terminal
@@ -28,22 +37,28 @@ def main():
 		print('You see a laptop on a shelf on the left wall.')
 		print('You see a window on the right wall.\n')
 
-		print('What do you do?')
-		print('1) Grab the laptop.')
-		print('2) Try to open the door.')
-		print('3) Try to open the window.\n')
+		print('What do you do?\n')
+		options_one = open('options_one.txt', 'r')
+		print_options(options_one)
 
 		answer = input('Option: ')
 
 		if answer == '1':
 			os.system('cls||clear')
 			print('The laptop is unlocked. It has Kali Linux installed on it.\n')
+			laptop = True # The player now has the laptop
+
 		elif answer == '2':
 			os.system('cls||clear')
-			print('The door has an electronic numpad. You don\'t know the code.')
+			print('The door has an electronic numpad. You don\'t know the code.\n')
+			print('What do you do?')
+			print('1) Grab the laptop.')
+			print('2) Try to open the window.')
 		elif answer == '3':
 			os.system('cls||clear')
-			print('You can see outside. There is a security sensor on the edge of the window.')
-
+			print('You can see outside. There is a security sensor on the edge of the window.\n')
+			print('What do you do?')
+			print('1) Grab the laptop.')
+			print('2) Try to open the door.')
 
 main()
