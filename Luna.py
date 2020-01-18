@@ -16,7 +16,7 @@ def main():
 
 	# Defining needed variables
 
-	playing = True
+	laptop = False # Player doensn't have the laptop
 
 	# Beginning the game
 
@@ -29,22 +29,21 @@ def main():
 		print('You see a window on the right wall.\n')
 
 		print('What do you do?')
-		print('1) Open the laptop.')
-		print('2) Look out the window.')
-		print('3) Try to open the door.\n')
+		print('1) Grab the laptop.')
+		print('2) Try to open the door.')
+		print('3) Try to open the window.\n')
 
 		answer = input('Option: ')
 
 		if answer == '1':
 			os.system('cls||clear')
-			print('\nThe laptop is unlocked. It has Kali Linux installed on it.\n')
-			print('What do you do?')
-			print('1) Try to open the window.')
-			print('2) Try to open the door.')
+			print('The laptop is unlocked. It has Kali Linux installed on it.\n')
 		elif answer == '2':
-			print('\nYou can see outside. There is a security sensor on the edge of the window.')
+			os.system('cls||clear')
+			print('The door has an electronic numpad. You don\'t know the code.')
 		elif answer == '3':
-			print('\nThe door is locked.')
+			os.system('cls||clear')
+			print('You can see outside. There is a security sensor on the edge of the window.')
 
 
 main()
