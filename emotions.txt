@@ -1,0 +1,6 @@
+good: That\'s original. 
+happy: Well aren\'t you a ray of sunshine.
+sad: You poor child.
+depressed: Welcome to the real world.
+angry: You are the center of the universe.
+excited: Calm down.
