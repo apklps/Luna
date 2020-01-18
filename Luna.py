@@ -1,5 +1,5 @@
 def main():
 
-	woah_bro = 'zoom'
+	print('Hello, I\'m Luna.')
 
 main()
