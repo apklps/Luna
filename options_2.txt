@@ -1,0 +1,3 @@
+) Grab the laptop.
+) Try to open the door.
+) Try to open the window.

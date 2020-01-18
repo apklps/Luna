@@ -38,7 +38,7 @@ def main():
 		print('You see a window on the right wall.\n')
 
 		print('What do you do?\n')
-		options_one = open('options_one.txt', 'r')
+		options_one = open('options_1.txt', 'r')
 		print_options(options_one)
 
 		answer = input('Option: ')
