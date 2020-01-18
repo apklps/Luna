@@ -44,6 +44,7 @@ def main():
 	# Defining needed variables
 
 	laptop = False # Player doesn't have the laptop
+	hackedDoor = False # Player hasn't hacked the door
 	injuryUpper = False # Player doesn't have an upper-body injury
 	injuryLower = False # Player doesn't have an upper-body injury
 	gameState = 1 # Saves the progression of the game
@@ -85,12 +86,23 @@ def main():
 						gameState = gameState + 98 # gameState is at 100
 						answer = getPlayerInput(gameState)
 
-						if answer == '1': # Hack the door
-							os.system('cls||clear')
-							print('You successfully hacked the door!')
+						while hackedDoor == False:
+
+							if answer == '1': # Hack the door
+								hackedDoor = True
+								os.system('cls||clear')
+								print('You successfully hacked the door!')
+								print('You open the door and look forward into a room filled with pictures.\n')
+								answer = getPlayerInput(gameState)
+
+							elif answer == '2': # Kick down the door
+								os.system('cls||clear')
+								print('You size up the door and approach it, kicking it full-force.')
+								print('You failed to realize that the door is metal, and you broke your ankle.')
+								injuryLower = True
 
 
-					elif answer == '1': # Player tries to open the window
+					elif answer == '2': # Player tries to open the window
 						pass
 						gameState = gameState + 1 # gameState is at 3
 
