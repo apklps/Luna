@@ -1,10 +1,10 @@
 import os, time
 
-def open_file():
+def open_file(game_state):
 
-	name = 'options_' + str(game_state)
-	print(name)
-	return file = open(name, 'r')
+	name = 'options_' + str(game_state) + '.txt'
+	file = open(name, 'r')
+	return file
 
 def close_file():
 
@@ -21,7 +21,7 @@ def print_options(options):
 
 def remove_options(option):
 
-	
+	pass
 
 def main():
 
@@ -40,7 +40,7 @@ def main():
 	# Defining needed variables
 
 	laptop = False # Player doensn't have the laptop
-	game_state = 0 # Saves the progression of the game
+	game_state = 1 # Saves the progression of the game
 
 	# Beginning the game
 
@@ -53,8 +53,8 @@ def main():
 		print('You see a window on the right wall.\n')
 
 		print('What do you do?\n')
-		open_file()
-		print_options(options_one)
+		file = open_file(game_state)
+		print_options(file)
 
 		answer = input('Option: ')
 
@@ -62,7 +62,7 @@ def main():
 			os.system('cls||clear')
 			print('The laptop is unlocked. It has Kali Linux installed on it.\n')
 			laptop = True # The player now has the laptop
-			game_state = game_state + 1 # The game_state is now at 1
+			game_state = game_state + 1 # The game_state is now at 2
 
 		elif answer == '2':
 			os.system('cls||clear')
