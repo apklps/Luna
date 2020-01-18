@@ -90,9 +90,16 @@ def main():
 							print('You successfully hacked the door!')
 
 
-					elif answer == '1': # Player tries to open the window
-						pass
+					elif answer == '2': # Player tries to open the window
+						os.system('cls||clear')
+						print('You can see outside. There is a security sensor on the edge of the window.\n')
 						gameState = gameState + 1 # gameState is at 3
+						answer = getPlayerInput(gameState)
+						if answer == '1': #hack window
+							os.system('cls||clear')
+							print('You use the laptop to hack into the security sensor like a 1337 gamer.\n')
+							print('The window opens. You appear to be on the 13th floor.\n')
+							print('What do you do?')
 
 				elif answer == '2': # Player tries to open the door
 					os.system('cls||clear')
