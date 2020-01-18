@@ -27,13 +27,17 @@ def getPlayerInput(gameState):
 	answer = input('Option: ')
 	return answer
 
-def main():
+def makeSpace():
 
 	# Clears the terminal
 
 	os.system('cls||clear')
 
+def main():
+
 	# Introductory text
+
+	makeSpace()
 
 	print('HackED 2020 - Luna\n')
 	print('Developed in a 24-hour timeframe by Dylan and Taylor.\n')
@@ -47,11 +51,10 @@ def main():
 	injuryUpper = False # Player doesn't have an upper-body injury
 	injuryLower = False # Player doesn't have an upper-body injury
 	gameState = 1 # Saves the progression of the game
-	gameEnd = False
 
 	# Beginning the game
 
-	os.system('cls||clear')
+	makeSpace()
 
 	while injuryUpper == False or injuryLower == False:
 
@@ -70,7 +73,7 @@ def main():
 				answer = getPlayerInput(gameState)
 
 				if answer == '1': # Player grabs the laptop
-					os.system('cls||clear')
+					makeSpace()
 					print('The laptop is unlocked. It has Kali Linux installed on it.\n')
 					laptop = True # The player now has the laptop
 					gameState = gameState + 1 # The gameState is now at 2
@@ -80,7 +83,7 @@ def main():
 					answer = getPlayerInput(gameState)
 
 					if answer == '1': # Player tries to opens the door
-						os.system('cls||clear')
+						makeSpace()
 						print('The door has an electronic numpad. You don\'t know the code.\n')
 						gameState = gameState + 98 # gameState is at 100
 						answer = getPlayerInput(gameState)
@@ -132,6 +135,19 @@ def main():
 
 
 
+							if answer == '1': # Hack the door
+								makeSpace()
+								hackedDoor = True
+								print('You successfully hacked the door!')
+								print('You open the door and look forward into a room filled with pictures.\n')
+								gameState = gameState + 1
+								answer = getPlayerInput(gameState)
+
+							elif answer == '2': # Kick down the door
+								makeSpace()
+								print('You size up the door and approach it, kicking it full-force.')
+								print('You failed to realize that the door is metal, and you broke your ankle.')
+
 
 
 					elif answer == '2': # Player tries to open the window
@@ -146,11 +162,11 @@ def main():
 							print('What do you do?')
 
 				elif answer == '2': # Player tries to open the door
-					os.system('cls||clear')
+					makeSpace()
 					print('The door has an electronic numpad. You don\'t know the code.\n')
 
 				elif answer == '3': # Player tries to open the window
-					os.system('cls||clear')
+					makeSpace()
 					print('You can see outside. There is a security sensor on the edge of the window.\n')
 
 main()
