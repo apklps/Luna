@@ -6,22 +6,27 @@ def open_file(game_state):
 	file = open(name, 'r')
 	return file
 
+def organize_file(file):
+
+	list = []
+
+	for line in file:
+		list.append(line)
+
+	return list
+
 def close_file():
 
 	file.close()
 
-def print_options(options):
+def print_options(file):
 
 	i = 1
 
-	for line in options:
-		print(i, line, end = '')
+	for line in file:
+		print(str(i) + line, end = '')
 		i = i + 1
 	print('\n')
-
-def remove_options(option):
-
-	pass
 
 def main():
 
@@ -39,7 +44,8 @@ def main():
 
 	# Defining needed variables
 
-	laptop = False # Player doensn't have the laptop
+	laptop = False # Player doesn't have the laptop
+	injury = False # Player doesn't have an injury
 	game_state = 1 # Saves the progression of the game
 
 	# Beginning the game
@@ -52,27 +58,27 @@ def main():
 		print('You see a laptop on a shelf on the left wall.')
 		print('You see a window on the right wall.\n')
 
-		print('What do you do?\n')
-		file = open_file(game_state)
-		print_options(file)
+		while laptop == False:
 
-		answer = input('Option: ')
+			print('What do you do?\n')
+			file = open_file(game_state)
+			file = organize_file(file)
+			print_options(file)
 
-		if answer == '1':
-			os.system('cls||clear')
-			print('The laptop is unlocked. It has Kali Linux installed on it.\n')
-			laptop = True # The player now has the laptop
-			game_state = game_state + 1 # The game_state is now at 2
+			answer = input('Option: ')
 
-		elif answer == '2':
-			os.system('cls||clear')
-			print('The door has an electronic numpad. You don\'t know the code.\n')
-			remove_options(answer)
-		elif answer == '3':
-			os.system('cls||clear')
-			print('You can see outside. There is a security sensor on the edge of the window.\n')
-			print('What do you do?')
-			print('1) Grab the laptop.')
-			print('2) Try to open the door.')
+			if answer == '1':
+				os.system('cls||clear')
+				print('The laptop is unlocked. It has Kali Linux installed on it.\n')
+				laptop = True # The player now has the laptop
+				game_state = game_state + 1 # The game_state is now at 2
+
+			elif answer == '2':
+				os.system('cls||clear')
+				print('The door has an electronic numpad. You don\'t know the code.\n')
+
+			elif answer == '3':
+				os.system('cls||clear')
+				print('You can see outside. There is a security sensor on the edge of the window.\n')
 
 main()
