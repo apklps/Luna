@@ -2,24 +2,15 @@ import os, time
 
 def open_file(game_state):
 
+	# Opens option file depending on the player's game state
+
 	name = 'options_' + str(game_state) + '.txt'
 	file = open(name, 'r')
 	return file
 
-def organize_file(file):
-
-	list = []
-
-	for line in file:
-		list.append(line)
-
-	return list
-
-def close_file():
-
-	file.close()
-
 def print_options(file):
+
+	# Prints out the options in the text file
 
 	i = 1
 
@@ -52,17 +43,20 @@ def main():
 
 	os.system('cls||clear')
 
+	# Game State One (No laptop, first room)
+
 	if answer == 'Y':
 		print('You wake up in a dimly lit room.')
 		print('You see a door on the opposite wall of you.')
 		print('You see a laptop on a shelf on the left wall.')
 		print('You see a window on the right wall.\n')
 
+		# Loops options until the player grabs the laptop
+
 		while laptop == False:
 
 			print('What do you do?\n')
 			file = open_file(game_state)
-			file = organize_file(file)
 			print_options(file)
 
 			answer = input('Option: ')
