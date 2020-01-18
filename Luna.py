@@ -1,3 +1,5 @@
+import os
+
 def main():
 
 	print('HackED 2020 - Luna\n')
@@ -12,8 +14,13 @@ def main():
 
 	talking = True
 
-	if answer = 'Y':
+	os.system('cls||clear')
+
+	if answer == 'Y':
+		input('If you would like to quit at any time, just type "quit".\n\n')
 		while talking:
+			talking = False
+			
 
 
 main()
