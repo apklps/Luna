@@ -6,8 +6,10 @@ def main():
 	print('self-actualization through a series of questions.\n')
 	answer = input('Would you like to proceed? (Y/N) ')
 
+	talking = True
+
 	if answer = 'Y':
 		while talking:
-			pass
+
 
 main()
