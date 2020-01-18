@@ -90,6 +90,50 @@ def main():
 							print('You successfully hacked the door!')
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 					elif answer == '2': # Player tries to open the window
 						os.system('cls||clear')
 						print('You can see outside. There is a security sensor on the edge of the window.\n')
