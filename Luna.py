@@ -48,6 +48,7 @@ def main():
 	# Defining needed variables
 
 	laptop = False # Player doesn't have the laptop
+	hackedDoor = False # Player hasn't hacked the door
 	injuryUpper = False # Player doesn't have an upper-body injury
 	injuryLower = False # Player doesn't have an upper-body injury
 	gameState = 1 # Saves the progression of the game
@@ -88,22 +89,25 @@ def main():
 						gameState = gameState + 98 # gameState is at 100
 						answer = getPlayerInput(gameState)
 
-						if answer == '1': # Hack the door
-							makeSpace()
-							print('You successfully hacked the door!')
+						while hackedDoor == False:
 
 							if answer == '1': # Hack the door
 								makeSpace()
 								hackedDoor = True
 								print('You successfully hacked the door!')
 								print('You open the door and look forward into a room filled with pictures.\n')
-								gameState = gameState + 1
+								gameState = gameState + 1 # gameState is at 101
 								answer = getPlayerInput(gameState)
 
 							elif answer == '2': # Kick down the door
 								makeSpace()
 								print('You size up the door and approach it, kicking it full-force.')
 								print('You failed to realize that the door is metal, and you broke your ankle.')
+								injuryLower = True
+								hackedDoor = False
+
+							else:
+								makeSpace()
 
 					elif answer == '2': # Player tries to open the window
 						makeSpace()
@@ -124,5 +128,8 @@ def main():
 				elif answer == '3': # Player tries to open the window
 					makeSpace()
 					print('You can see outside. There is a security sensor on the edge of the window.\n')
+
+				else:
+					makeSpace()
 
 main()
