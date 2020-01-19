@@ -115,7 +115,12 @@ def main():
 							print('You use the laptop to hack into the security sensor like a 1337 gamer.\n')
 							print('The window opens. You appear to be on the 13th floor.\n')
 							print('What do you do?')
-
+						elif answer == '2': #punch the window
+							os.system('cls||clear')
+							print('You square up with the window and throw hands.\n')
+							print('The window counter attacks and breaks your Proximal Phalanges')
+							injuryUpper = True
+							
 				elif answer == '2': # Player tries to open the door
 					makeSpace()
 					print('The door has an electronic numpad. You don\'t know the code.\n')
