@@ -34,6 +34,7 @@ def surrealDeath():
 	# Surreal death text
 
 	print('You don\'t exist. Experience again soon.\n')
+	sys.exit()
 
 def injuryDeath():
 
@@ -106,14 +107,14 @@ def pictureOptions(answer, gameState, rage, doorOpened, mirrorPeer):
 
 		while doorOpened == False:
 			answer = getPlayerInput(gameState)
-			doorOpened = pictureDoorOptions(answer, gameState, mirrorPeer)
+			doorOpened = pictureDoorOptions(answer, gameState, rage, doorOpened, mirrorPeer)
 
 	else:
 		falseOption()
 
 	return rage
 
-def pictureDoorOptions(answer, gameState, mirrorPeer):
+def pictureDoorOptions(answer, gameState, rage, doorOpened, mirrorPeer):
 
 	if answer == '1':
 		makeSpace()
@@ -125,7 +126,7 @@ def pictureDoorOptions(answer, gameState, mirrorPeer):
 
 		while mirrorPeer == False:
 			answer = getPlayerInput(gameState)
-			bathroomOptions(answer, gameState)
+			bathroomOptions(answer, gameState, rage, doorOpened, mirrorPeer)
 
 		return doorOpened
 
@@ -139,7 +140,7 @@ def pictureDoorOptions(answer, gameState, mirrorPeer):
 	else:
 		falseOption()
 
-def bathroomOptions(answer, gameState):
+def bathroomOptions(answer, gameState, rage, doorOpened, mirrorPeer):
 
 	if answer == '1':
 		makeSpace()
@@ -155,15 +156,52 @@ def bathroomOptions(answer, gameState):
 		time.sleep(3)
 		gameState = gameState + 1 # gameState is at 104
 		answer = getPlayerInput(gameState)
-
+		mirrorOptions(answer, gameState, rage, doorOpened, mirrorPeer)
 		return mirrorPeer
 
 	else:
 		falseOption()
 
-def mirrorOptions(answer, gameState):
+def mirrorOptions(answer, gameState, rage, doorOpened, mirrorPeer):
 
-	pass
+	if answer == '1':
+		makeSpace()
+		print('You turn around to walk away from the mirror.')
+		print('The bathroom door is gone.')
+		print('You turn around to look back at the mirror, and it is also gone.\n')
+		surrealDeath()
+
+	if answer == '2':
+		makeSpace()
+		print('You begin to reach in to the mirror.')
+		print('You look at yourself, and you look back at you.')
+		print('You see you see you.')
+		print('"It\'s not your time yet. Try again."')
+		time.sleep(7)
+		print('\nYour head begins to feel light as the mirror moves away from you.')
+		print('You watch everything move away from you, leaving you in the darkness.')
+		time.sleep(5)
+		gameState = gameState + 1 # gameState is at 105
+		beginAgain(answer, gameState, rage, doorOpened, mirrorPeer)
+
+def beginAgain(answer, gameState, rage, doorOpened, mirrorPeer):
+
+	makeSpace()
+	print('You wake up in a dimly lit room.')
+	print('You see a door on the opposite wall of you.')
+	print('You see a laptop on a shelf on the left wall.')
+	print('You see a window on the right wall.\n')
+	answer = getPlayerInput(gameState)
+
+	if int(answer) > 0:
+
+		makeSpace()
+		print('You open the door and look forward into a room filled with pictures.\n')
+		gameState = 101
+
+		while rage == False:
+			rage = pictureOptions(answer, gameState, rage, doorOpened, mirrorPeer)
+
 
 def main():
 
@@ -279,5 +317,8 @@ def main():
 
 				else:
 					makeSpace()
+
+		else:
+			falseSurrealOption()
 
 main()
