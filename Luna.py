@@ -47,12 +47,20 @@ def makeSpace():
 
 	os.system('cls||clear')
 
-def falseOption():
+def falseSurrealOption():
 
 	# What the game prints when an invalid option is used
 
 	print('\nThat was not an option.')
 	surrealDeath()
+	sys.exit()
+
+def falseNormalOption():
+
+	# What the game prints when an invalid option is used
+
+	print('\nThat was not an option.')
+	injuryDeath()
 	sys.exit()
 
 def doorOptions(answer, gameState, rage, doorOpened, mirrorPeer):
@@ -114,9 +122,9 @@ def pictureDoorOptions(answer, gameState, mirrorPeer):
 		print('You spot a stall with an ajar door and a sink with a mirror above it.')
 		doorOpened = True
 		gameState = gameState + 1 # gameState is at 103
-		answer = getPlayerInput(gameState)
 
 		while mirrorPeer == False:
+			answer = getPlayerInput(gameState)
 			bathroomOptions(answer, gameState)
 
 		return doorOpened
@@ -143,12 +151,19 @@ def bathroomOptions(answer, gameState):
 		print('You walk up to the mirror and wipe it off with your hand.')
 		print('You look in the mirror, but your reflection doesn\'t make eye contact.')
 		print('What did you do?\n')
+		mirrorPeer = True
 		time.sleep(3)
 		gameState = gameState + 1 # gameState is at 104
 		answer = getPlayerInput(gameState)
 
+		return mirrorPeer
+
 	else:
 		falseOption()
+
+def mirrorOptions(answer, gameState):
+
+	pass
 
 def main():
 
@@ -227,7 +242,7 @@ def main():
 								makeSpace()
 								print('Being a total badass was always your identity; you jump through')
 								print('the window without any concern for your well being.\n')
-								time.sleep(3)
+								time.sleep(7)
 								makeSpace()
 								print('You land safely in a dumpster filled with inflated bags of laughing gas.')
 								print('Some of the gas is released, and you giggle.')
@@ -242,17 +257,17 @@ def main():
 								print('As you turn back you hear the roar of an airplane getting closer.')
 								print('Your entire world explodes as it crashes into the window, shattering')
 								print('your self-esteem.')
-								injuryDeath()
+								falseNormalOption()
 						elif answer == '2': #punch the window
 							makeSpace()
 							print('You square up with the window and throw hands.')
 							print('The window counter attacks and breaks your Proximal Phalanges')
 							print('You hear the voice of your deceased taekwondo master:\n')
 							print('"You absolute bafoon. You bring shame to our lineage."')
-							injuryDeath()
+							falseNormalOption()
 
 					else:
-						falseOption()
+						falseSurrealOption()
 
 				elif answer == '2': # Player tries to open the door
 					makeSpace()
