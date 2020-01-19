@@ -127,9 +127,8 @@ def main():
 							makeSpace()
 							print('You square up with the window and throw hands.')
 							print('The window counter attacks and breaks your Proximal Phalanges')
-							injuryUpper = True
-							print ('You should probably take a different approach.')
-							answer = getPlayerInput(gameState)
+							print('You hear the voice of your deceased taekwondo master:\n')
+							print('"You absolute bafoon. You bring shame to our lineage.')
 
 				elif answer == '2': # Player tries to open the door
 					makeSpace()
