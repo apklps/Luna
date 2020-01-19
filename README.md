@@ -1,2 +1,2 @@
 # Luna
-HackED 2020 - Chat Bot
+HackED 2020 - Choose Your Own Adventure
