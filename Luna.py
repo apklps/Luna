@@ -47,7 +47,91 @@ def makeSpace():
 
 	os.system('cls||clear')
 
+def doorOptions(answer, gameState, rage, doorOpened, mirrorPeer):
 
+	if answer == '1': # Hack the door
+		makeSpace()
+		hackedDoor = True
+		print('You successfully hacked the door!')
+		print('You open the door and look forward into a room filled with pictures.\n')
+		gameState = gameState + 1 # gameState is at 101
+
+		while rage == False:
+			rage = pictureOptions(answer, gameState, rage, doorOpened, mirrorPeer)
+
+	elif answer == '2': # Kick down the door
+		makeSpace()
+		print('You size up the door and approach it, kicking it full-force.')
+		print('You failed to realize that the door is metal, and you broke your ankle.')
+		print('The pain of your broken angle makes you faint.')
+		print('While falling, you bash your head on the doorknob.\n')
+		surrealDeath()
+		injury = True
+		return injury
+
+	else:
+		makeSpace()
+
+def pictureOptions(answer, gameState, rage, doorOpened, mirrorPeer):
+
+	answer = getPlayerInput(gameState)
+
+	if answer == '1':
+		makeSpace()
+		print('You walk up to the photos to get a good look at them.')
+		print('All of the photos are of you.')
+
+	elif answer == '2':
+		makeSpace()
+		print('You frantically run around the room, knocking all of the pictures off the wall.')
+		print('You reveal two doors.')
+		rage = True
+		gameState = gameState + 1 # gameState is at 102
+
+		while doorOpened == False:
+			answer = getPlayerInput(gameState)
+			doorOpened = pictureDoorOptions(answer, gameState, mirrorPeer)
+
+	return rage
+
+def pictureDoorOptions(answer, gameState, mirrorPeer):
+
+	if answer == '1':
+		makeSpace()
+		print('As you open the door a bathroom is revealed.')
+		print('The smell of bleach fills the air.')
+		print('You spot a stall with an ajar door and a sink with a mirror above it.')
+		doorOpened = True
+		gameState = gameState + 1 # gameState is at 103
+		answer = getPlayerInput(gameState)
+
+		while mirrorPeer == False:
+			bathroomOptions(answer, gameState)
+
+		return doorOpened
+
+	elif answer == '2':
+		makeSpace()
+		print('Opening the door reveals a cement wall.')
+		print('The wall reads "I see you see me".\n')
+		doorOpened = False
+		return doorOpened
+
+def bathroomOptions(answer, gameState):
+
+	if answer == '1':
+		makeSpace()
+		print('The stall is empty graffiti on the wall and a dark red stain on the ceiling.')
+		print('The graffiti reads "You stand in a croud of people. You are all the same."')
+
+	elif answer == '2':
+		makeSpace()
+		print('You walk up to the mirror and wipe it off with your hand.')
+		print('You look in the mirror, but your reflection doesn\'t make eye contact.')
+		print('What did you do?\n')
+		time.sleep(3)
+		gameState = gameState + 1 # gameState is at 104
+		answer = getPlayerInput(gameState)
 
 def main():
 
@@ -67,6 +151,7 @@ def main():
 	hackedDoor = False # Player hasn't hacked the door
 	rage = False # Player hasn't knocked down the pictures
 	doorOpened = False # Player hasn't opened the bathroom door
+	mirrorPeer = False # Player hasn't looked in the mirror
 	injury = False # Player doesn't have an injury
 	gameState = 1 # Saves the progression of the game
 
@@ -106,69 +191,7 @@ def main():
 						gameState = gameState + 98 # gameState is at 100
 						answer = getPlayerInput(gameState)
 
-						if answer == '1': # Hack the door
-							makeSpace()
-							hackedDoor = True
-							print('You successfully hacked the door!')
-							print('You open the door and look forward into a room filled with pictures.\n')
-							gameState = gameState + 1 # gameState is at 101
-
-							while rage == False:
-
-								answer = getPlayerInput(gameState)
-
-								if answer == '1':
-									makeSpace()
-									print('You walk up to the photos to get a good look at them.')
-									print('All of the photos are of you.')
-
-								if answer == '2':
-									makeSpace()
-									print('You frantically run around the room, knocking all of the pictures off the wall.')
-									print('You reveal two doors.')
-									rage = True
-									gameState = gameState + 1 # gameState is at 102
-
-									while doorOpened == False:
-
-										answer = getPlayerInput(gameState)
-
-										if answer == '1':
-											makeSpace()
-											print('As you open the door a bathroom is revealed.')
-											print('The smell of bleach fills the air.')
-											print('You spot a stall with an ajar door and a sink with a mirror above it.')
-											doorOpened = True
-											gameState = gameState + 1 # gameState is at 103
-											answer = getPlayerInput(gameState)
-
-											if answer == '1':
-												makeSpace()
-												print('The stall is empty graffiti on the wall and a dark red stain on the ceiling.')
-												print('The graffiti reads "You stand in a croud of people. You are all the same."')
-
-											if answer == '2':
-												makeSpace()
-												print('You walk up to the mirror and wipe it off with your hand.')
-												print('You look in the mirror, but your reflection doesn\'t make eye contact.')
-												print('What did you do?')
-
-										if answer == '2':
-											makeSpace()
-											print('Opening the door reveals a cement wall.')
-											print('The wall reads "I see you see me".\n')
-
-						elif answer == '2': # Kick down the door
-							makeSpace()
-							print('You size up the door and approach it, kicking it full-force.')
-							print('You failed to realize that the door is metal, and you broke your ankle.')
-							print('The pain of your broken angle makes you faint.')
-							print('While falling, you bash your head on the doorknob.\n')
-							surrealDeath()
-							injury = True
-								
-						else:
-							makeSpace()
+						injury = doorOptions(answer, gameState, rage, doorOpened, mirrorPeer)
 
 					elif answer == '2': # Player tries to open the window
 						makeSpace()
@@ -210,6 +233,11 @@ def main():
 							print('You hear the voice of your deceased taekwondo master:\n')
 							print('"You absolute bafoon. You bring shame to our lineage.')
 							injuryDeath()
+
+					else:
+						injury = True
+						print('\nThat was not an option.')
+						surrealDeath()
 
 				elif answer == '2': # Player tries to open the door
 					makeSpace()
