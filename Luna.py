@@ -1,4 +1,4 @@
-import os, time
+import os, time, sys
 
 def openFile(gameState):
 
@@ -47,6 +47,14 @@ def makeSpace():
 
 	os.system('cls||clear')
 
+def falseOption():
+
+	# What the game prints when an invalid option is used
+
+	print('\nThat was not an option.')
+	surrealDeath()
+	sys.exit()
+
 def doorOptions(answer, gameState, rage, doorOpened, mirrorPeer):
 
 	if answer == '1': # Hack the door
@@ -70,7 +78,7 @@ def doorOptions(answer, gameState, rage, doorOpened, mirrorPeer):
 		return injury
 
 	else:
-		makeSpace()
+		falseOption()
 
 def pictureOptions(answer, gameState, rage, doorOpened, mirrorPeer):
 
@@ -91,6 +99,9 @@ def pictureOptions(answer, gameState, rage, doorOpened, mirrorPeer):
 		while doorOpened == False:
 			answer = getPlayerInput(gameState)
 			doorOpened = pictureDoorOptions(answer, gameState, mirrorPeer)
+
+	else:
+		falseOption()
 
 	return rage
 
@@ -117,6 +128,9 @@ def pictureDoorOptions(answer, gameState, mirrorPeer):
 		doorOpened = False
 		return doorOpened
 
+	else:
+		falseOption()
+
 def bathroomOptions(answer, gameState):
 
 	if answer == '1':
@@ -132,6 +146,9 @@ def bathroomOptions(answer, gameState):
 		time.sleep(3)
 		gameState = gameState + 1 # gameState is at 104
 		answer = getPlayerInput(gameState)
+
+	else:
+		falseOption()
 
 def main():
 
@@ -212,13 +229,11 @@ def main():
 							print('You square up with the window and throw hands.')
 							print('The window counter attacks and breaks your Proximal Phalanges')
 							print('You hear the voice of your deceased taekwondo master:\n')
-							print('"You absolute bafoon. You bring shame to our lineage.')
+							print('"You absolute bafoon. You bring shame to our lineage."')
 							injuryDeath()
 
 					else:
-						injury = True
-						print('\nThat was not an option.')
-						surrealDeath()
+						falseOption()
 
 				elif answer == '2': # Player tries to open the door
 					makeSpace()
