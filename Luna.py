@@ -29,7 +29,7 @@ def getPlayerInput(gameState):
 
 def injuryDeath():
 
-	print('Your journey ends here. Experience again.')
+	print('YOU ARE DEAD. Experience again.')
 
 def makeSpace():
 
@@ -125,13 +125,14 @@ def main():
 							print('What do you do?')
 							gameState = gameState + 1 #gamestate at 4
 							answer = getPlayerInput(gameState)
-
+							
 						elif answer == '2': #punch the window
 							makeSpace()
 							print('You square up with the window and throw hands.')
 							print('The window counter attacks and breaks your Proximal Phalanges')
 							print('You hear the voice of your deceased taekwondo master:\n')
 							print('"You absolute bafoon. You bring shame to our lineage.')
+							injuryDeath()
 
 				elif answer == '2': # Player tries to open the door
 					makeSpace()
