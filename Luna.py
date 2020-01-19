@@ -1,4 +1,4 @@
-import os, time, sys
+import os, time, sys, random
 
 def openFile(gameState):
 
@@ -220,10 +220,29 @@ def main():
 							makeSpace()
 							print('You use the laptop to hack into the security sensor like a 1337 gamer.')
 							print('The window opens. You appear to be on the 13th floor.')
-							print('What do you do?')
+							
 							gameState = gameState + 1 #gameState at 4
 							answer = getPlayerInput(gameState)
-							
+							if answer == '1': #jump thru
+								makeSpace()
+								print('Being a total badass was always your identity; you jump through')
+								print('the window without any concern for your well being.\n')
+								time.sleep(3)
+								makeSpace()
+								print('You land safely in a dumpster filled with inflated bags of laughing gas.')
+								print('Some of the gas is released, and you giggle.')
+								print('As you pull yourself out, you see that you are in a back alley.\n')
+								print('SUDDENLY, a vicious dog confronts you, snarling, foaming at the mouth.')
+								gameState = gameState + 1
+								answer - getPlayerInput(gameState)
+								
+
+							elif answer == '2': #Turn back
+								makeSpace()
+								print('As you turn back you hear the roar of an airplane getting closer.')
+								print('Your entire world explodes as it crashes into the window, shattering')
+								print('your self-esteem.')
+								injuryDeath()
 						elif answer == '2': #punch the window
 							makeSpace()
 							print('You square up with the window and throw hands.')
