@@ -21,21 +21,33 @@ def printOptions(file):
 
 def getPlayerInput(gameState):
 
+	# Prints player options and gets what option they want
+
 	print('What do you do?\n')
 	file = openFile(gameState)
 	printOptions(file)
 	answer = input('Option: ')
 	return answer
 
-def injuryDeath():
+def surrealDeath():
+
+	# Surreal death text
 
 	print('You don\'t exist. Experience again soon.\n')
+
+def injuryDeath()
+
+	# Normal death text
+
+	print('YOU ARE DEAD. Experience again soon.\n')
 
 def makeSpace():
 
 	# Clears the terminal
 
 	os.system('cls||clear')
+
+
 
 def main():
 
@@ -152,7 +164,7 @@ def main():
 							print('You failed to realize that the door is metal, and you broke your ankle.')
 							print('The pain of your broken angle makes you faint.')
 							print('While falling, you bash your head on the doorknob.\n')
-							injuryDeath()
+							surrealDeath()
 							injury = True
 								
 						else:
