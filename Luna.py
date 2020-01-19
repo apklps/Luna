@@ -27,6 +27,10 @@ def getPlayerInput(gameState):
 	answer = input('Option: ')
 	return answer
 
+def injuryDeath():
+
+	print('Your journey ends here. Experience again.')
+
 def makeSpace():
 
 	# Clears the terminal
@@ -49,15 +53,14 @@ def main():
 
 	laptop = False # Player doesn't have the laptop
 	hackedDoor = False # Player hasn't hacked the door
-	injuryUpper = False # Player doesn't have an upper-body injury
-	injuryLower = False # Player doesn't have an upper-body injury
+	injury = False # Player doesn't have an injury
 	gameState = 1 # Saves the progression of the game
 
 	# Beginning the game
 
 	makeSpace()
 
-	while injuryUpper == False or injuryLower == False:
+	while injury == False:
 
 		# Game State One (No laptop, first room)
 
@@ -89,25 +92,25 @@ def main():
 						gameState = gameState + 98 # gameState is at 100
 						answer = getPlayerInput(gameState)
 
-						while hackedDoor == False:
+						if answer == '1': # Hack the door
+							makeSpace()
+							hackedDoor = True
+							print('You successfully hacked the door!')
+							print('You open the door and look forward into a room filled with pictures.\n')
+							gameState = gameState + 1 # gameState is at 101
+							answer = getPlayerInput(gameState)
 
-							if answer == '1': # Hack the door
-								makeSpace()
-								hackedDoor = True
-								print('You successfully hacked the door!')
-								print('You open the door and look forward into a room filled with pictures.\n')
-								gameState = gameState + 1 # gameState is at 101
-								answer = getPlayerInput(gameState)
-
-							elif answer == '2': # Kick down the door
-								makeSpace()
-								print('You size up the door and approach it, kicking it full-force.')
-								print('You failed to realize that the door is metal, and you broke your ankle.')
-								injuryLower = True
-								hackedDoor = False
-
-							else:
-								makeSpace()
+						elif answer == '2': # Kick down the door
+							makeSpace()
+							print('You size up the door and approach it, kicking it full-force.')
+							print('You failed to realize that the door is metal, and you broke your ankle.')
+							print('The pain of your broken angle makes you faint.')
+							print('While falling, you bash your head on the doorknob.\n')
+							injuryDeath()
+							injury = True
+								
+						else:
+							makeSpace()
 
 					elif answer == '2': # Player tries to open the window
 						makeSpace()
