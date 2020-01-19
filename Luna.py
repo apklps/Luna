@@ -92,49 +92,6 @@ def main():
 							os.system('cls||clear')
 							print('You successfully hacked the door!')
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 							if answer == '1': # Hack the door
 								makeSpace()
 								hackedDoor = True
