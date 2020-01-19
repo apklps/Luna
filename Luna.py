@@ -111,15 +111,25 @@ def main():
 
 					elif answer == '2': # Player tries to open the window
 						makeSpace()
-						print('You can see outside. There is a security sensor on the edge of the window.\n')
+						print('You can see outside. There is a security sensor on the edge of the window.')
 						gameState = gameState + 1 # gameState is at 3
 						answer = getPlayerInput(gameState)
 
 						if answer == '1': #hack window
 							makeSpace()
-							print('You use the laptop to hack into the security sensor like a 1337 gamer.\n')
-							print('The window opens. You appear to be on the 13th floor.\n')
+							print('You use the laptop to hack into the security sensor like a 1337 gamer.')
+							print('The window opens. You appear to be on the 13th floor.')
 							print('What do you do?')
+							gameState = gameState + 1 #gamestate at 4
+							answer = getPlayerInput(gameState)
+
+						elif answer == '2': #punch the window
+							makeSpace()
+							print('You square up with the window and throw hands.')
+							print('The window counter attacks and breaks your Proximal Phalanges')
+							injuryUpper = True
+							print ('You should probably take a different approach.')
+							answer = getPlayerInput(gameState)
 
 				elif answer == '2': # Player tries to open the door
 					makeSpace()
