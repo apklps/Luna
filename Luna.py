@@ -53,6 +53,8 @@ def main():
 
 	laptop = False # Player doesn't have the laptop
 	hackedDoor = False # Player hasn't hacked the door
+	rage = False # Player hasn't knocked down the pictures
+	doorOpened = False # Player hasn't opened the bathroom door
 	injury = False # Player doesn't have an injury
 	gameState = 1 # Saves the progression of the game
 
@@ -98,7 +100,45 @@ def main():
 							print('You successfully hacked the door!')
 							print('You open the door and look forward into a room filled with pictures.\n')
 							gameState = gameState + 1 # gameState is at 101
-							answer = getPlayerInput(gameState)
+
+							while rage == False:
+
+								answer = getPlayerInput(gameState)
+
+								if answer == '1':
+									makeSpace()
+									print('You walk up to the photos to get a good look at them.')
+									print('All of the photos are of you.')
+
+								if answer == '2':
+									makeSpace()
+									print('You frantically run around the room, knocking all of the pictures off the wall.')
+									print('You reveal two doors.')
+									rage = True
+									gameState = gameState + 1 # gameState is at 102
+
+									while doorOpened == False:
+
+										answer = getPlayerInput(gameState)
+
+										if answer == '1':
+											makeSpace()
+											print('As you open the door a bathroom is revealed.')
+											print('The smell of bleach fills the air.')
+											print('You spot a stall with an ajar door and a sink with a mirror above it.')
+											doorOpened = True
+											gameState = gameState + 1 # gameState is at 103
+											answer = getPlayerInput(gameState)
+
+											if answer == '1':
+												makeSpace()
+												print('The stall is empty graffiti on the wall and a dark red stain on the ceiling.')
+												print('The graffiti reads "You stand in a croud of people. You are all the same."')
+
+										if answer == '2':
+											makeSpace()
+											print('Opening the door reveals a cement wall.')
+											print('The wall reads "I see you see me".\n')
 
 						elif answer == '2': # Kick down the door
 							makeSpace()
@@ -123,7 +163,7 @@ def main():
 							print('You use the laptop to hack into the security sensor like a 1337 gamer.')
 							print('The window opens. You appear to be on the 13th floor.')
 							print('What do you do?')
-							gameState = gameState + 1 #gamestate at 4
+							gameState = gameState + 1 #gameState at 4
 							answer = getPlayerInput(gameState)
 
 						elif answer == '2': #punch the window
