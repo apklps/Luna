@@ -29,7 +29,7 @@ def getPlayerInput(gameState):
 
 def injuryDeath():
 
-	print('YOU ARE DEAD. Experience again.')
+	print('You don\'t exist. Experience again soon.')
 
 def makeSpace():
 
