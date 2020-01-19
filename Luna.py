@@ -29,7 +29,7 @@ def getPlayerInput(gameState):
 
 def injuryDeath():
 
-	print('You don\'t exist. Experience again soon.')
+	print('You don\'t exist. Experience again soon.\n')
 
 def makeSpace():
 
@@ -134,6 +134,12 @@ def main():
 												makeSpace()
 												print('The stall is empty graffiti on the wall and a dark red stain on the ceiling.')
 												print('The graffiti reads "You stand in a croud of people. You are all the same."')
+
+											if answer == '2':
+												makeSpace()
+												print('You walk up to the mirror and wipe it off with your hand.')
+												print('You look in the mirror, but your reflection doesn\'t make eye contact.')
+												print('What did you do?')
 
 										if answer == '2':
 											makeSpace()
