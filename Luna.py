@@ -89,7 +89,7 @@ def main():
 						answer = getPlayerInput(gameState)
 
 						if answer == '1': # Hack the door
-							os.system('cls||clear')
+							makeSpace()
 							print('You successfully hacked the door!')
 
 							if answer == '1': # Hack the door
@@ -104,8 +104,6 @@ def main():
 								makeSpace()
 								print('You size up the door and approach it, kicking it full-force.')
 								print('You failed to realize that the door is metal, and you broke your ankle.')
-
-
 
 					elif answer == '2': # Player tries to open the window
 						os.system('cls||clear')
