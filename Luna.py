@@ -197,7 +197,9 @@ def beginAgain(answer, gameState, rage, doorOpened, mirrorPeer):
 
 		makeSpace()
 		print('You open the door and look forward into a room filled with pictures.\n')
-		gameState = 101
+		gameState = 101 # Reset for game loop
+
+		rage = False # Reset for game loop
 
 		while rage == False:
 			rage = pictureOptions(answer, gameState, rage, doorOpened, mirrorPeer)
