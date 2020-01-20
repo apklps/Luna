@@ -202,7 +202,6 @@ def beginAgain(answer, gameState, rage, doorOpened, mirrorPeer):
 		while rage == False:
 			rage = pictureOptions(answer, gameState, rage, doorOpened, mirrorPeer)
 
-
 def main():
 
 	# Introductory text
